@@ -1,0 +1,89 @@
+unit uCadDependente;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ComCtrls,
+  Vcl.ExtCtrls, Data.DB, Data.Win.ADODB;
+
+type
+  TfrmCadDependente = class(TForm)
+    Panel2: TPanel;
+    PageControl2: TPageControl;
+    TabSheet6: TTabSheet;
+    Panel7: TPanel;
+    Label8: TLabel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Panel11: TPanel;
+    edtCodSocio: TEdit;
+    Panel1: TPanel;
+    Panel3: TPanel;
+    Panel6: TPanel;
+    btnSalvarPedido: TBitBtn;
+    BitBtn9: TBitBtn;
+    btnPesquisar: TBitBtn;
+    Panel4: TPanel;
+    edtCodDepen: TEdit;
+    edtIdadeDepen: TEdit;
+    edtNomeDepen: TEdit;
+    Label3: TLabel;
+    btnNovo: TBitBtn;
+    aqrDependente: TADOQuery;
+    procedure btnNovoClick(Sender: TObject);
+    procedure btnSalvarPedidoClick(Sender: TObject);
+    procedure btnPesquisarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCadDependente: TfrmCadDependente;
+
+implementation
+
+{$R *.dfm}
+
+uses uPesqSocio, UDM;
+
+procedure TfrmCadDependente.btnNovoClick(Sender: TObject);
+begin
+edtNomeDepen.Enabled := true;
+edtIdadeDepen.Enabled := true;
+edtCodSocio.Enabled := true;
+btnPesquisar.Enabled := true;
+btnSalvarPedido.Enabled := true;
+end;
+
+procedure TfrmCadDependente.btnPesquisarClick(Sender: TObject);
+begin
+Application.CreateForm(TfrmPesquisarSocio,frmPesquisarSocio);
+frmPesquisarSocio.ShowModal;
+end;
+
+procedure TfrmCadDependente.btnSalvarPedidoClick(Sender: TObject);
+begin
+
+if (edtNomeDepen.Text = '') and (edtIdadeDepen.Text = '') then
+ raise Exception.Create('Por gentileza preencher campos vazios !');
+
+
+if (edtCodSocio.Text = '') then
+ raise Exception.Create('Selecione o Socio responsavel pelo Dependente !');
+
+
+ aqrDependente.Close;
+ aqrDependente.SQL.Clear;
+ aqrDependente.SQL.Add('INSERT INTO DEPENDENTE (ID_SOCIO,NOME_DEPENDENTE,IDADE_DEPENDENTE) '+
+ 'VALUES ( '''+edtCodSocio.Text+''', '''+edtIdadeDepen.Text+''', '''+edtIdadeDepen.Text+''' )  ');
+ aqrDependente.ExecSQL;
+
+ ShowMessage('Realizado o cadastro do dependenente ');
+
+
+end;
+
+end.

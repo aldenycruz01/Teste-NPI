@@ -1,0 +1,49 @@
+unit uRelatorio;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
+  Data.DB, Data.Win.ADODB, frxClass, frxDBSet;
+
+type
+  TfrmRelatorio = class(TForm)
+    Panel1: TPanel;
+    BitBtn1: TBitBtn;
+    frxDBDataset1: TfrxDBDataset;
+    frxReport1: TfrxReport;
+    aqrRelatorio: TADOQuery;
+    aqrRelatorioID_SOCIO: TAutoIncField;
+    aqrRelatorioNOME_SOCIO: TStringField;
+    aqrRelatorioSITUACAO: TStringField;
+    aqrRelatorioID_DEPENDENTE: TAutoIncField;
+    aqrRelatorioNOME_DEPENDENTE: TStringField;
+    procedure FormShow(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmRelatorio: TfrmRelatorio;
+
+implementation
+
+{$R *.dfm}
+
+uses UDM;
+
+procedure TfrmRelatorio.BitBtn1Click(Sender: TObject);
+begin
+ frxReport1.ShowReport
+end;
+
+procedure TfrmRelatorio.FormShow(Sender: TObject);
+begin
+aqrRelatorio.Active := True;
+end;
+
+end.

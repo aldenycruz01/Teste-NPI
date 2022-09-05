@@ -1,0 +1,31 @@
+unit uPesquisarSocio;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls;
+
+type
+  TfrmPesquisaDeSocio = class(TForm)
+    Panel1: TPanel;
+    edtPesquisar: TEdit;
+    btnPesquisar: TBitBtn;
+    DBGrid1: TDBGrid;
+    Panel2: TPanel;
+    btnAlterar: TBitBtn;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPesquisaDeSocio: TfrmPesquisaDeSocio;
+
+implementation
+
+{$R *.dfm}
+
+end.

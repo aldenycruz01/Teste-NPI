@@ -1,0 +1,50 @@
+object frmPrincipal: TfrmPrincipal
+  Left = 0
+  Top = 0
+  ClientHeight = 505
+  ClientWidth = 784
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  Menu = MainMenu1
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object MainMenu1: TMainMenu
+    Left = 104
+    Top = 24
+    object Cadsatro1: TMenuItem
+      Caption = 'Cadastro'
+      object Socio1: TMenuItem
+        Caption = 'Socio'
+        object CadastrarSocio1: TMenuItem
+          Caption = 'Cadastrar Socio'
+          OnClick = CadastrarSocio1Click
+        end
+        object PesquisarSocio1: TMenuItem
+          Caption = 'Pesquisar Socio'
+        end
+      end
+      object Dependente1: TMenuItem
+        Caption = 'Dependente '
+        OnClick = Dependente1Click
+        object CadastrarDependente1: TMenuItem
+          Caption = 'Cadastrar Dependente'
+        end
+        object PesquisarDependente1: TMenuItem
+          Caption = 'Pesquisar Dependente'
+        end
+      end
+    end
+    object Relatorio1: TMenuItem
+      Caption = 'Relatorio'
+      object Listagem1: TMenuItem
+        Caption = 'Listagem '
+      end
+    end
+  end
+end

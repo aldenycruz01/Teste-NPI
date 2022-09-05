@@ -1,0 +1,51 @@
+unit uPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus;
+
+type
+  TfrmPrincipal = class(TForm)
+    MainMenu1: TMainMenu;
+    Cadsatro1: TMenuItem;
+    Relatorio1: TMenuItem;
+    Socio1: TMenuItem;
+    Dependente1: TMenuItem;
+    Listagem1: TMenuItem;
+    CadastrarSocio1: TMenuItem;
+    PesquisarSocio1: TMenuItem;
+    CadastrarDependente1: TMenuItem;
+    PesquisarDependente1: TMenuItem;
+    procedure Dependente1Click(Sender: TObject);
+    procedure CadastrarSocio1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+uses uCadDependente, uCadSocio;
+
+
+procedure TfrmPrincipal.CadastrarSocio1Click(Sender: TObject);
+begin
+  Application.CreateForm(TfrmCadSocio,frmCadSocio);
+  frmCadSocio.ShowModal;
+end;
+
+procedure TfrmPrincipal.Dependente1Click(Sender: TObject);
+begin
+  Application.CreateForm(TfrmCadDependente,frmCadDependente);
+  frmCadDependente.ShowModal;
+end;
+
+end.

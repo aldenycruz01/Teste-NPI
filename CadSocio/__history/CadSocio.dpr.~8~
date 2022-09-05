@@ -1,0 +1,20 @@
+program CadSocio;
+
+uses
+  Vcl.Forms,
+  uPrincipal in 'uPrincipal.pas' {frmPrincipal},
+  uCadSocio in 'uCadSocio.pas' {frmCadSocio},
+  uCadDependente in 'uCadDependente.pas' {frmCadDependente},
+  uPesqSocio in 'uPesqSocio.pas' {frmPesquisarSocio},
+  uPesquisarSocio in 'uPesquisarSocio.pas' {frmPesquisaDeSocio};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmPrincipal, frmPrincipal);
+  Application.CreateForm(TfrmPesquisarSocio, frmPesquisarSocio);
+  Application.CreateForm(TfrmPesquisaDeSocio, frmPesquisaDeSocio);
+  Application.Run;
+end.

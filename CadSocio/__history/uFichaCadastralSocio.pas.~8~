@@ -1,0 +1,111 @@
+unit uFichaCadastralSocio;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  Data.Win.ADODB, Vcl.StdCtrls, Vcl.Buttons, Vcl.ComCtrls, Vcl.ExtCtrls;
+
+type
+  TfrmFichaCadastralSocio = class(TForm)
+    Panel2: TPanel;
+    PageControl2: TPageControl;
+    TabSheet6: TTabSheet;
+    Panel7: TPanel;
+    Label6: TLabel;
+    Label8: TLabel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Panel11: TPanel;
+    edtCodSocio: TEdit;
+    edtNomeSocio: TEdit;
+    cbSim: TCheckBox;
+    cbNao: TCheckBox;
+    edtRendaSocio: TEdit;
+    Panel1: TPanel;
+    Panel3: TPanel;
+    Panel6: TPanel;
+    BitBtn9: TBitBtn;
+    aqrSocio: TADOQuery;
+    aqrSocioID_SOCIO: TAutoIncField;
+    aqrSocioNOME_SOCIO: TStringField;
+    aqrSocioRENDA_SOCIO: TBCDField;
+    Panel4: TPanel;
+    Panel5: TPanel;
+    DBGrid1: TDBGrid;
+    aqrPesqSocio: TADOQuery;
+    DBGrid2: TDBGrid;
+    dsPesqSocio: TDataSource;
+    Panel8: TPanel;
+    BitBtn1: TBitBtn;
+    btnAdicionar: TBitBtn;
+    btnAlterar: TBitBtn;
+    aqrAuxiliar: TADOQuery;
+    aqrAuxiliarID_SOCIO: TAutoIncField;
+    aqrAuxiliarNOME_SOCIO: TStringField;
+    aqrAuxiliarRENDA_SOCIO: TBCDField;
+    aqrAuxiliarSTATUS: TBooleanField;
+    aqrPesqSocioID_DEPENDENTE: TAutoIncField;
+    aqrPesqSocioNOME_DEPENDENTE: TStringField;
+    aqrPesqSocioIDADE_DEPENDENTE: TIntegerField;
+    procedure FormShow(Sender: TObject);
+    procedure btnAdicionarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmFichaCadastralSocio: TfrmFichaCadastralSocio;
+
+implementation
+
+{$R *.dfm}
+
+uses UDM, uCadDependente;
+
+procedure TfrmFichaCadastralSocio.btnAdicionarClick(Sender: TObject);
+begin
+ Application.CreateForm(TfrmCadDependente,frmCadDependente);
+ frmCadDependente.edtCodSocio.Text := frmFichaCadastralSocio.edtCodSocio.Text;
+ frmCadDependente.ShowModal;
+end;
+
+procedure TfrmFichaCadastralSocio.FormShow(Sender: TObject);
+var
+valor : string;
+begin
+aqrAuxiliar.Close;
+aqrAuxiliar.SQL.Clear;
+aqrAuxiliar.SQL.Add(' SELECT ID_SOCIO,NOME_SOCIO,RENDA_SOCIO,STATUS   '+
+'FROM SOCIO WHERE ID_SOCIO = '''+edtCodSocio.Text+''' ');
+aqrAuxiliar.Open;
+
+edtNomeSocio.Text := aqrAuxiliar.FieldByName('NOME_SOCIO').AsString;
+edtRendaSocio.Text := aqrAuxiliar.FieldByName('RENDA_SOCIO').AsString;
+
+valor:= aqrAuxiliar.FieldByName('STATUS').AsString;
+
+
+
+    if valor = 'True' then
+      begin
+      cbSim.Checked :=true
+    end
+ else
+    begin
+    cbNao.Checked := true;
+   end;
+
+aqrPesqSocio.Close;
+aqrPesqSocio.SQL.Clear;
+aqrPesqSocio.SQL.Add(' SELECT ID_DEPENDENTE, NOME_DEPENDENTE,IDADE_DEPENDENTE  '+
+'FROM DEPENDENTE WHERE ID_SOCIO = '''+edtCodSocio.Text+''' ');
+aqrPesqSocio.Open;
+
+
+end;
+
+end.

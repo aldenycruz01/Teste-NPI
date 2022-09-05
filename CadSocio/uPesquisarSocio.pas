@@ -1,0 +1,87 @@
+unit uPesquisarSocio;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls, Data.Win.ADODB;
+
+type
+  TfrmPesquisaDeSocio = class(TForm)
+    Panel1: TPanel;
+    edtPesquisar: TEdit;
+    btnPesquisar: TBitBtn;
+    DBGrid1: TDBGrid;
+    Panel2: TPanel;
+    btnAlterar: TBitBtn;
+    rbDesativado: TRadioButton;
+    rbAtivo: TRadioButton;
+    aqrPesqSocio: TADOQuery;
+    dsPesqSocio: TDataSource;
+    aqrPesqSocioID_SOCIO: TAutoIncField;
+    aqrPesqSocioNOME_SOCIO: TStringField;
+    aqrPesqSocioSITUACAO: TStringField;
+    procedure btnPesquisarClick(Sender: TObject);
+    procedure btnAlterarClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPesquisaDeSocio: TfrmPesquisaDeSocio;
+
+implementation
+
+{$R *.dfm}
+
+uses UDM, uFichaCadastralSocio;
+
+procedure TfrmPesquisaDeSocio.btnAlterarClick(Sender: TObject);
+begin
+
+   if DBGrid1.Columns[0].Field.AsString='' then
+    raise Exception.Create('Selecione um Socio!')
+  else
+    begin
+      Application.CreateForm(TfrmFichaCadastralSocio,frmFichaCadastralSocio);
+      frmFichaCadastralSocio.edtCodSocio.Text:=DBGrid1.Columns[0].Field.AsString;
+      frmFichaCadastralSocio.ShowModal;
+    end;
+
+
+
+end;
+
+procedure TfrmPesquisaDeSocio.btnPesquisarClick(Sender: TObject);
+var
+sBase : string;
+begin
+
+  sBase:= 'SELECT ID_SOCIO, NOME_SOCIO,STATUS,'+
+' CASE WHEN STATUS = 1 THEN ''ATIVO'' ELSE ''DESATIVADO'' END AS SITUACAO'+
+' FROM SOCIO WHERE NOME_SOCIO LIKE '''+('%'+edtPesquisar.Text+'%')+'''  ';
+
+
+
+      if rbAtivo.Checked then
+        sBase:=sBase + ' AND STATUS = ''1'' ';
+      if rbDesativado.Checked then
+        sBase:=sBase + ' AND STATUS = ''0'' ';
+     aqrPesqSocio.Close;
+     aqrPesqSocio.SQL.Clear;
+     aqrPesqSocio.SQL.Add(sBase);
+     aqrPesqSocio.Open;
+
+
+end;
+
+procedure TfrmPesquisaDeSocio.FormShow(Sender: TObject);
+begin
+aqrPesqSocio.Active := true;
+end;
+
+end.

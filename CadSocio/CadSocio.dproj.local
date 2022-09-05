@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2021/07/29 12:42:43.000.978,=C:\Users\Aldeny Cruz\Documents\Embarcadero\Studio\Projects\Unit12.pas</Transaction>
+    <Transaction>2021/07/30 13:24:20.000.383,=C:\Users\Aldeny Cruz\Documents\Embarcadero\Studio\Projects\Unit12.pas</Transaction>
+    <Transaction>2022/08/30 11:32:39.000.316,=C:\Users\Aldeny Cruz\Documents\Embarcadero\Studio\Projects\Unit12.pas</Transaction>
+    <Transaction>2022/08/30 11:33:36.000.362,C:\Users\Aldeny Cruz\Documents\Embarcadero\Studio\Projects\Unit12.dfm=C:\CadSocio\uPrincipal.dfm</Transaction>
+    <Transaction>2022/08/30 11:33:36.000.362,C:\Users\Aldeny Cruz\Documents\Embarcadero\Studio\Projects\Unit12.pas=C:\CadSocio\uPrincipal.pas</Transaction>
+    <Transaction>2022/08/30 11:33:49.000.476,C:\Users\Aldeny Cruz\Documents\Embarcadero\Studio\Projects\Project10.dproj=C:\CadSocio\CadSocio.dproj</Transaction>
+    <Transaction>2022/08/30 14:13:07.000.975,=C:\CadSocio\Unit1.pas</Transaction>
+    <Transaction>2022/08/30 14:27:01.000.393,C:\CadSocio\Unit1.dfm=C:\CadSocio\uCadSocio.dfm</Transaction>
+    <Transaction>2022/08/30 14:27:01.000.393,C:\CadSocio\Unit1.pas=C:\CadSocio\uCadSocio.pas</Transaction>
+    <Transaction>2022/08/30 14:51:07.000.852,=C:\CadSocio\Unit2.pas</Transaction>
+    <Transaction>2022/08/30 15:17:44.000.392,C:\CadSocio\Unit2.pas=C:\CadSocio\uCadDependente.pas</Transaction>
+    <Transaction>2022/08/30 15:17:44.000.392,C:\CadSocio\Unit2.dfm=C:\CadSocio\uCadDependente.dfm</Transaction>
+    <Transaction>2022/08/31 10:10:24.000.943,=C:\CadSocio\Unit1.pas</Transaction>
+    <Transaction>2022/08/31 10:22:31.000.150,C:\CadSocio\Unit1.pas=C:\CadSocio\uPesqSocio.pas</Transaction>
+    <Transaction>2022/08/31 10:22:31.000.150,C:\CadSocio\Unit1.dfm=C:\CadSocio\uPesqSocio.dfm</Transaction>
+    <Transaction>2022/08/31 10:29:09.000.787,=C:\CadSocio\Unit1.pas</Transaction>
+    <Transaction>2022/08/31 10:32:00.000.978,C:\CadSocio\Unit1.dfm=C:\CadSocio\uPesquisarSocio.dfm</Transaction>
+    <Transaction>2022/08/31 10:32:00.000.978,C:\CadSocio\Unit1.pas=C:\CadSocio\uPesquisarSocio.pas</Transaction>
+    <Transaction>2022/08/31 10:33:03.000.138,=C:\CadSocio\Unit1.pas</Transaction>
+    <Transaction>2022/08/31 10:34:38.000.821,C:\CadSocio\Unit1.dfm=C:\CadSocio\uPesquisarDependente.dfm</Transaction>
+    <Transaction>2022/08/31 10:34:38.000.821,C:\CadSocio\Unit1.pas=C:\CadSocio\uPesquisarDependente.pas</Transaction>
+    <Transaction>2022/09/01 13:50:00.000.211,=C:\CadSocio\Unit1.pas</Transaction>
+    <Transaction>2022/09/01 13:51:44.000.591,C:\CadSocio\Unit1.pas=C:\CadSocio\UDM.pas</Transaction>
+    <Transaction>2022/09/01 13:51:44.000.591,C:\CadSocio\Unit1.dfm=C:\CadSocio\UDM.dfm</Transaction>
+    <Transaction>2022/09/03 11:15:00.027,=C:\CadSocio\Unit1.pas</Transaction>
+    <Transaction>2022/09/03 11:20:18.980,C:\CadSocio\uRelatorio.dfm=C:\CadSocio\Unit1.dfm</Transaction>
+    <Transaction>2022/09/03 11:20:18.980,C:\CadSocio\uRelatorio.pas=C:\CadSocio\Unit1.pas</Transaction>
+    <Transaction>2022/09/04 02:30:46.822,=C:\CadSocio\Unit1.pas</Transaction>
+    <Transaction>2022/09/04 02:40:50.970,C:\CadSocio\uFichaCadastralSocio.pas=C:\CadSocio\Unit1.pas</Transaction>
+    <Transaction>2022/09/04 02:40:50.970,C:\CadSocio\uFichaCadastralSocio.dfm=C:\CadSocio\Unit1.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

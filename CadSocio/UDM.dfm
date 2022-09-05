@@ -1,0 +1,16 @@
+object DM: TDM
+  OldCreateOrder = False
+  Height = 426
+  Width = 584
+  object conexao: TADOConnection
+    Connected = True
+    ConnectionString = 
+      'Provider=SQLOLEDB.1;Password=s2f1303;Persist Security Info=True;' +
+      'User ID=sysdba;Initial Catalog=DBCAD;Data Source=DESKTOP-EOCFR7D'
+    KeepConnection = False
+    LoginPrompt = False
+    Provider = 'SQLOLEDB.1'
+    Left = 48
+    Top = 48
+  end
+end
